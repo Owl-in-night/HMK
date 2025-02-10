@@ -1,0 +1,18 @@
+{
+  "tags":{
+    "home":"Inicio",
+    "about":"Sobre nosotros",
+    "contact":"Contacto"
+  },
+  "navbar":{
+
+  },
+  "home":{
+    "asides":{
+      "name":"Hotel Maya Kakchiquel"
+    }
+  },
+  "footer":{
+    
+  }
+}
