@@ -51,7 +51,7 @@ function Home() {
         {/* Sección 1: Imagen a pantalla completa */}
         <section
           className="w-full h-screen bg-cover bg-center"
-          style={{ backgroundImage: 'url("/img/t.png")' }}
+          style={{ backgroundImage: 'url("/img/home.png")' }}
         ></section>
         {/* Sección 2 */}
         <section id="section1" className="py-16">
