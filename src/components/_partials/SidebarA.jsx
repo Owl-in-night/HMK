@@ -24,12 +24,12 @@ export default function SidebarA() {
   return (
     <>
       {/* Logo fuera del Sidebar con fondo */}
-      <div className="absolute top-5 left-5 z-50  rounded">
-        <img src="path_to_logo.png" alt="Logo" className="w-24" />
+      <div className="absolute top-5 left-5 z-50 rounded">
+        <img src="path_to_logo.png" alt="Logo" className="hidden md:block w-24" />
       </div>
 
       {/* Íconos de redes sociales fuera del Sidebar con fondo */}
-      <div className="absolute bottom-5 left-5 z-50 bg-slate-50 rounded">
+      <div className="absolute bottom-5 left-5 z-50 rounded hidden md:block">
         <div className="flex flex-col space-y-4">
           <a
             href="https://facebook.com"
@@ -45,13 +45,13 @@ export default function SidebarA() {
           >
             <Instagram className="w-6 h-6" />
           </a>
-          <a
+          {/* <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Github className="w-6 h-6" />
-          </a>
+          </a> */}
         </div>
       </div>
 

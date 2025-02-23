@@ -5,7 +5,7 @@ import Footer from "@/components/_partials/Footer";
 function FirtsLayout() {
   return (
     <div>
-      <aside className="fixed top-0 left-0 h-screen bg-slate-50">
+      <aside className="fixed top-0 left-0 w-16 md:bg-slate-50 h-screen">
         <SidebarA />
       </aside>
       <main className="p-4 md:p-0 md:ml-16">

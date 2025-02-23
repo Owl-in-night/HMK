@@ -6,7 +6,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 // import PrivateLayout from "@/Layouts/PrivateLayout";
 
 // Main Pages
-import Dashboard from "@/pages/Dashboard";
+import HomePage from "@/pages/Home";
 //import Home from "@/pages/Home";
 // Error
 import Error from "../_partials/Error";
@@ -20,6 +20,7 @@ import Error from "../_partials/Error";
 // Scrolltop
 import ScrollToTop from "../_partials/ScrollToTop";
 import FirtsLayout from "@/Layouts/FirtsLayout";
+
 // import AdminLayout from "@/Layouts/AdminLayout";
 // import OperadorLayout from "@/Layouts/OperadorLayout";
 // import OperadorA from "@/pages/OperadorA";
@@ -41,8 +42,7 @@ function Navigation() {
       <Routes>
         {/* Rutas públicas */}
         <Route path="/" element={<FirtsLayout />}>
-          {/* <Route index element={<Home />} /> */}
-          <Route index element={<Dashboard />} />
+          <Route index element={<HomePage />} />
         </Route>
         {/* Admin Layout */}
         {/* <Route path="/" element={<AdminLayout />}>
