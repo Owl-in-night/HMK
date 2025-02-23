@@ -59,7 +59,7 @@ function LanguageToggle() {
               onClick={() => changeLanguage(lang.code)}
               className="flex items-center" // Aseguramos que cada item se disponga en fila
             >
-              <Avatar className="w-8 h-8 flex items-center justify-center rounded-full border shadow-lg mr-4">
+              <Avatar className="w-8 h-8 flex items-center justify-center rounded-full borde shadow-lg mr-4">
                 <AvatarImage
                   src={`https://flagcdn.com/${lang.flag}.svg`}
                   alt={`Flag of ${lang.label}`}

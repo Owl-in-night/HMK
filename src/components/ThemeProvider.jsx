@@ -1,22 +1,35 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeProviderContext = createContext({
-  theme: "light",
+  theme: "light", // Establecer el tema predeterminado como "light"
   setTheme: () => null,
 });
 
-export function ThemeProvider({ children, ...props }) {
-  const [theme, setTheme] = useState("light");
+export function ThemeProvider({
+  children,
+  storageKey = "vite-ui-theme",
+  ...props
+}) {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem(storageKey) || "light" // Valor predeterminado "light"
+  );
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove("dark");
-    root.classList.add("light");
-  }, []);
+
+    root.classList.remove("light", "dark");
+
+    root.classList.add("light"); // Siempre agregar la clase "light"
+
+    // Eliminar la lógica para el tema del sistema
+  }, [theme]);
 
   const value = {
     theme,
-    setTheme: () => {}, // No permitir cambios de tema
+    setTheme: (newTheme) => {
+      localStorage.setItem(storageKey, newTheme);
+      setTheme(newTheme);
+    },
   };
 
   return (
@@ -28,8 +41,9 @@ export function ThemeProvider({ children, ...props }) {
 
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext);
-  if (context === undefined) {
+
+  if (context === undefined)
     throw new Error("useTheme must be used within a ThemeProvider");
-  }
+
   return context;
 };

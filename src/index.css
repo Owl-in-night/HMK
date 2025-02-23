@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
+    --card: 60 4.8% 95.9%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
@@ -33,7 +33,7 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 24 9.8% 10%;
     --foreground: 210 40% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 210 40% 98%;
@@ -70,7 +70,14 @@
 }
 
 /* Others */
-
+#root{
+  font-family: "Mona Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
 /* Banner Support */
 .banner-bg {
   position: relative;

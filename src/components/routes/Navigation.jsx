@@ -2,22 +2,27 @@ import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 // Layouts
-import PublicLayout from "@/Layouts/PublicLayout";
+//import PublicLayout from "@/Layouts/PublicLayout";
 // import PrivateLayout from "@/Layouts/PrivateLayout";
 
 // Main Pages
-import Home from "../../pages/Home";
-import Contact from "@/pages/Contact";
-import About from "@/pages/About";
+import Dashboard from "@/pages/Dashboard";
+//import Home from "@/pages/Home";
 // Error
 import Error from "../_partials/Error";
 
 // AuthContext
-import { AuthProvider } from "@/context/authContext";
+//
+// import { ProtectedRoute } from "../ProtectedRoute";
+// import { ProtectedRoute } from "../ProtectedRoute";
 // import { ProtectedRoute } from "../_partials/Protectedroute";
 
 // Scrolltop
 import ScrollToTop from "../_partials/ScrollToTop";
+import FirtsLayout from "@/Layouts/FirtsLayout";
+// import AdminLayout from "@/Layouts/AdminLayout";
+// import OperadorLayout from "@/Layouts/OperadorLayout";
+// import OperadorA from "@/pages/OperadorA";
 
 function Navigation() {
   const location = useLocation();
@@ -32,18 +37,37 @@ function Navigation() {
   return (
     <div className="Navigation">
       <ScrollToTop />
-      <AuthProvider>
-        <Routes>
-          {/* Rutas públicas */}
-          <Route path="/" element={<PublicLayout />}>
-            <Route index element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
+
+      <Routes>
+        {/* Rutas públicas */}
+        <Route path="/" element={<FirtsLayout />}>
+          {/* <Route index element={<Home />} /> */}
+          <Route index element={<Dashboard />} />
+        </Route>
+        {/* Admin Layout */}
+        {/* <Route path="/" element={<AdminLayout />}>
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
           </Route>
-          {/* Página de error */}
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </AuthProvider>
+          <Route path="/" element={<OperadorLayout />}>
+            <Route
+              path="/Operador"
+              element={
+                <ProtectedRoute>
+                  <OperadorA />
+                </ProtectedRoute>
+              }
+            />
+          </Route> */}
+        {/* Página de error */}
+        <Route path="*" element={<Error />} />
+      </Routes>
     </div>
   );
 }
