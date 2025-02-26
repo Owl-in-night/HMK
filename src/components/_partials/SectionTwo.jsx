@@ -1,95 +1,61 @@
-export default function SectionTwo() {
-  return (
-    <div>
-      <div className="relative overflow-hidden -z-10">
-        <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-          <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
-            <div className="sm:max-w-lg">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Summer styles are finally here
-              </h1>
-              <p className="mt-4 text-xl text-gray-500">
-                This year, our new summer collection will shelter you from the
-                harsh elements of a world that doesn't care if you live or die.
-              </p>
-            </div>
-            <div>
-              <div className="mt-10">
-                {/* Decorative image grid */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
-                >
-                  <div className="absolute transform sm:top-0 sm:left-1/2 sm:translate-x-8 lg:top-1/2 lg:left-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                    <div className="flex items-center space-x-6 lg:space-x-8">
-                      <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-                          <img
-                            alt=""
-                            src="https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
-                            className="size-full object-cover"
-                          />
-                        </div>
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            alt=""
-                            src="https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                            className="size-full object-cover"
-                          />
-                        </div>
-                      </div>
-                      <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            alt=""
-                            src="https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                            className="size-full object-cover"
-                          />
-                        </div>
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            alt=""
-                            src="https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                            className="size-full object-cover"
-                          />
-                        </div>
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            alt=""
-                            src="https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
-                            className="size-full object-cover"
-                          />
-                        </div>
-                      </div>
-                      <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            alt=""
-                            src="https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
-                            className="size-full object-cover"
-                          />
-                        </div>
-                        <div className="h-64 w-44 overflow-hidden rounded-lg">
-                          <img
-                            alt=""
-                            src="https://tailwindui.com/plus-assets/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
-                            className="size-full object-cover"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
-                <a
-                  href="#"
-                  className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
-                >
-                  Shop Collection
-                </a>
-              </div>
+import { Cloud, Lock, Server } from 'lucide-react';
+
+export default function SectionTwo() {
+  const features = [
+
+
+    {
+      name: 'Push to deploy.',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      icon: Cloud,
+    },
+    {
+      name: 'SSL certificates.',
+      description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+      icon: Lock,
+    },
+    {
+      name: 'Database backups.',
+      description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
+      icon: Server,
+    },
+  ]
+  return (
+    <div className="overflow-hidden py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div className="lg:pt-4 lg:pr-8">
+            <div className="lg:max-w-lg">
+              <h2 className="text-base/7 font-semibold text-indigo-600">Deploy faster</h2>
+              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+                A better workflow
+              </p>
+              <p className="mt-6 text-lg/8 text-gray-600">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
+                iste dolor cupiditate blanditiis ratione.
+              </p>
+              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
+                {features.map((feature) => (
+                  <div key={feature.name} className="relative pl-9">
+                    <dt className="inline font-semibold text-gray-900">
+                      <feature.icon aria-hidden="true" className="absolute top-1 left-1 size-5 text-indigo-600" />
+                      {feature.name}
+                    </dt>{' '}
+                    <dd className="inline">{feature.description}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
+          <img
+            alt="Product screenshot"
+            src="https://tailwindui.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
+            width={2432}
+            height={1442}
+            className="w-[48rem] max-w-none rounded-xl ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
+          />
         </div>
       </div>
     </div>

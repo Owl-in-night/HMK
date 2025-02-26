@@ -1,22 +1,21 @@
 import {
-  BookType,
-  ChartPie,
-  Database,
-  Landmark,
-  LayoutDashboard,
   LifeBuoy,
-  LogOut,
   Menu,
-  NotebookText,
-  Settings,
-  Shapes,
-  Users,
   Facebook,
-  Github,
   Instagram,
+  LucideWaves,
+  Car,
+  Tickets,
+  Utensils,
+  MapPinHouse,
+  BedDouble,
+  CircleHelp,
+  UserPen,
+  Home,
 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import WavesLadder from "./WavesLadder";
 
 export default function SidebarA() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -24,8 +23,11 @@ export default function SidebarA() {
   return (
     <>
       {/* Logo fuera del Sidebar con fondo */}
-      <div className="absolute top-5 left-5 z-50 rounded">
-        <img src="path_to_logo.png" alt="Logo" className="hidden md:block w-24" />
+      <div className="absolute top-5 left-1 z-50 rounded hidden md:hidden lg:block">
+        <img
+          src="/img/logo.png"
+          className="hidden md:block w-24"
+        />
       </div>
 
       {/* Íconos de redes sociales fuera del Sidebar con fondo */}
@@ -45,26 +47,19 @@ export default function SidebarA() {
           >
             <Instagram className="w-6 h-6" />
           </a>
-          {/* <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github className="w-6 h-6" />
-          </a> */}
         </div>
       </div>
 
       {/* Botón para abrir el Sidebar */}
-      <div className="absolute top-5 lg:top-1/2 left-0 lg:left-auto transform -translate-y-1/2 lg:translate-y-0 z-40">
+      <div className="absolute top-5 top-10 lg:top-1/2 left-0 lg:left-auto transform -translate-y-1/2 lg:translate-y-0">
         <button
           onClick={() => setIsOpen(true)}
           aria-controls="separator-sidebar"
           type="button"
-          className="inline-flex items-center p-1 m-1 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          className="inline-flex items-center p-1 m-1 text-sm text-gray-100 md:text-gray-500 rounded-lg bg-slate-100 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-gray-200"
         >
           <span className="sr-only">Open sidebar</span>
-          <Menu className="w-6 h-6 md:w-12 md:h-12" />
+          <Menu className="w-6 h-6 md:w-12 md:h-12 text-stone-800" />
         </button>
       </div>
 
@@ -85,8 +80,8 @@ export default function SidebarA() {
         aria-label="Sidebar"
       >
         <div className="flex flex-col h-full bg-slate-50">
-          {/* Área superior interna: botón de cierre */}
-          <div className="flex items-center justify-end px-3 py-4 border-b border-gray-200">
+          {/* Área superior interna: botón de cierre (sin línea, ícono a la izquierda) */}
+          <div className="flex items-center justify-start px-3 py-4">
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded hover:bg-gray-200 focus:outline-none"
@@ -114,73 +109,71 @@ export default function SidebarA() {
             >
               <li>
                 <Link
-                  to="/dashboard"
+                  to={"/"}
                   className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
                 >
-                  <LayoutDashboard className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="ms-3">Dashboard</span>
+                  <Home className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="ms-3">Inicio</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/inventario"
+                  to={"/piscina"}
                   className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
                 >
-                  <Database className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <LucideWaves className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="ms-3">Piscina</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/jacuzzi"}
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                >
+                  <WavesLadder className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="flex-1 ms-3 whitespace-nowrap">Jacuzzi</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to={"/parqueo"}
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                >
+                  <Car className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="flex-1 ms-3 whitespace-nowrap">Parqueo</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/salones"}
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                >
+                  <Tickets className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="flex-1 ms-3 whitespace-nowrap">Salones</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/restaurante"}
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                >
+                  <Utensils className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
                   <span className="flex-1 ms-3 whitespace-nowrap">
-                    Inventario
+                    Restaurante
                   </span>
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/habitaciones"}
                   className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
                 >
-                  <BookType className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="flex-1 ms-3 whitespace-nowrap">Datos</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
-                >
-                  <NotebookText className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <BedDouble className="shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
                   <span className="flex-1 ms-3 whitespace-nowrap">
-                    Reportes
+                    Habitaciones
                   </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
-                >
-                  <ChartPie className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="flex-1 ms-3 whitespace-nowrap">
-                    Gráficos
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
-                >
-                  <Users className="shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="flex-1 ms-3 whitespace-nowrap">
-                    Usuarios
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a className="cursor-pointer flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                  <LogOut className="shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="flex-1 ms-3 whitespace-nowrap">
-                    Cerrar sesión
-                  </span>
-                </a>
+                </Link>
               </li>
             </ul>
             <ul
@@ -188,40 +181,40 @@ export default function SidebarA() {
               style={{ userSelect: "none" }}
             >
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/mapa"}
                   className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
                 >
-                  <Settings className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="ms-3">Ajustes</span>
-                </a>
+                  <MapPinHouse className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="ms-3">Mapa</span>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/about"}
                   className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
                 >
-                  <Landmark className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="ms-3">API</span>
-                </a>
+                  <CircleHelp className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="ms-3">Sobre Nosotros</span>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/contact"}
                   className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
                 >
-                  <Shapes className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="ms-3">Herramientas</span>
-                </a>
+                  <UserPen className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="ms-3">Contáctanos</span>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to={"/help"}
                   className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
                 >
                   <LifeBuoy className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="ms-3">Help</span>
-                </a>
+                  <span className="ms-3">Ayuda</span>
+                </Link>
               </li>
             </ul>
           </div>

@@ -7,6 +7,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 // Main Pages
 import HomePage from "@/pages/Home";
+import Piscina from "@/pages/Piscina";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 //import Home from "@/pages/Home";
 // Error
 import Error from "../_partials/Error";
@@ -20,6 +23,7 @@ import Error from "../_partials/Error";
 // Scrolltop
 import ScrollToTop from "../_partials/ScrollToTop";
 import FirtsLayout from "@/Layouts/FirtsLayout";
+
 
 // import AdminLayout from "@/Layouts/AdminLayout";
 // import OperadorLayout from "@/Layouts/OperadorLayout";
@@ -43,6 +47,9 @@ function Navigation() {
         {/* Rutas públicas */}
         <Route path="/" element={<FirtsLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="piscina" element={<Piscina />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
         {/* Admin Layout */}
         {/* <Route path="/" element={<AdminLayout />}>
