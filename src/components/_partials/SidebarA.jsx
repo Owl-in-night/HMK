@@ -12,6 +12,7 @@ import {
   CircleHelp,
   UserPen,
   Home,
+  Star,
 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -24,10 +25,7 @@ export default function SidebarA() {
     <>
       {/* Logo fuera del Sidebar con fondo */}
       <div className="absolute top-5 left-1 z-50 rounded hidden md:hidden lg:block">
-        <img
-          src="/img/logo.png"
-          className="hidden md:block w-24"
-        />
+        <img src="/img/logo.png" className="hidden md:block w-24" />
       </div>
 
       {/* Íconos de redes sociales fuera del Sidebar con fondo */}
@@ -118,39 +116,13 @@ export default function SidebarA() {
               </li>
               <li>
                 <Link
-                  to={"/piscina"}
+                  to={"/habitaciones"}
                   className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
                 >
-                  <LucideWaves className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="ms-3">Piscina</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={"/jacuzzi"}
-                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
-                >
-                  <WavesLadder className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="flex-1 ms-3 whitespace-nowrap">Jacuzzi</span>
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  to={"/parqueo"}
-                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
-                >
-                  <Car className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="flex-1 ms-3 whitespace-nowrap">Parqueo</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={"/salones"}
-                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
-                >
-                  <Tickets className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="flex-1 ms-3 whitespace-nowrap">Salones</span>
+                  <BedDouble className="shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="flex-1 ms-3 whitespace-nowrap">
+                    Habitaciones
+                  </span>
                 </Link>
               </li>
               <li>
@@ -166,13 +138,39 @@ export default function SidebarA() {
               </li>
               <li>
                 <Link
-                  to={"/habitaciones"}
+                  to={"/salones"}
                   className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
                 >
-                  <BedDouble className="shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="flex-1 ms-3 whitespace-nowrap">
-                    Habitaciones
-                  </span>
+                  <Tickets className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="flex-1 ms-3 whitespace-nowrap">Salones</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/parqueo"}
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                >
+                  <Car className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="flex-1 ms-3 whitespace-nowrap">Parqueo</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to={"/piscina"}
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                >
+                  <LucideWaves className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="ms-3">Piscina</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to={"/jacuzzi"}
+                  className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+                >
+                  <WavesLadder className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="flex-1 ms-3 whitespace-nowrap">Jacuzzi</span>
                 </Link>
               </li>
             </ul>
@@ -209,11 +207,11 @@ export default function SidebarA() {
               </li>
               <li>
                 <Link
-                  to={"/help"}
+                  to={"/rate"}
                   className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 group"
                 >
-                  <LifeBuoy className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                  <span className="ms-3">Ayuda</span>
+                  <Star className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                  <span className="ms-3">Califícanos</span>
                 </Link>
               </li>
             </ul>

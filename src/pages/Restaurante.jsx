@@ -2,7 +2,7 @@ import { Radio, RadioGroup } from "@headlessui/react";
 import { StarIcon } from "lucide-react";
 import { useState } from "react";
 
-function Jacuzzi() {
+function Restaurante() {
   const products = [
     {
       id: 1,
@@ -113,7 +113,7 @@ function Jacuzzi() {
       <section>
         <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-            Jacuzzi
+            Restaurante
           </h1>
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
@@ -335,4 +335,4 @@ function Jacuzzi() {
   );
 }
 
-export default Jacuzzi;
+export default Restaurante;

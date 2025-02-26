@@ -23,6 +23,13 @@ import Error from "../_partials/Error";
 // Scrolltop
 import ScrollToTop from "../_partials/ScrollToTop";
 import FirtsLayout from "@/Layouts/FirtsLayout";
+import Jacuzzi from "@/pages/Jacuzzi";
+import Parqueo from "@/pages/Parqueo";
+import Salones from "@/pages/Salones";
+import Restaurante from "@/pages/Restaurante";
+import Habitaciones from "@/pages/Habitaciones";
+import Mapa from "@/pages/Mapa";
+import Rate from "@/pages/Rate";
 
 
 // import AdminLayout from "@/Layouts/AdminLayout";
@@ -48,8 +55,15 @@ function Navigation() {
         <Route path="/" element={<FirtsLayout />}>
           <Route index element={<HomePage />} />
           <Route path="piscina" element={<Piscina />} />
+          <Route path="jacuzzi" element={<Jacuzzi />} />
+          <Route path="parqueo" element={<Parqueo />} />
+          <Route path="salones" element={<Salones />} />
+          <Route path="restaurante" element={<Restaurante />} />
+          <Route path="habitaciones" element={<Habitaciones />} />
+          <Route path="mapa" element={<Mapa />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="rate" element={<Rate />} />
         </Route>
         {/* Admin Layout */}
         {/* <Route path="/" element={<AdminLayout />}>
