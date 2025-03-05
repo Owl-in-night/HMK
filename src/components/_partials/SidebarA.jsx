@@ -1,6 +1,5 @@
 import {
   LifeBuoy,
-  Menu,
   Facebook,
   Instagram,
   LucideWaves,
@@ -13,6 +12,7 @@ import {
   UserPen,
   Home,
   Star,
+  Menu,
 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -28,33 +28,61 @@ export default function SidebarA() {
         <img src="/img/logo.png" className="hidden md:block w-24" />
       </div>
 
+      {/* Íconos de navegación fijos en PC */}
+      <div className="absolute top-1/2 left-5 z-50 rounded hidden lg:flex flex-col space-y-4 transform -translate-y-1/2">
+        {[
+          { to: "/", icon: Home, label: "Inicio" },
+          { to: "/habitaciones", icon: BedDouble, label: "Habitaciones" },
+          { to: "/restaurante", icon: Utensils, label: "Restaurante" },
+          { to: "/salones", icon: Tickets, label: "Salones" },
+          { to: "/parqueo", icon: Car, label: "Parqueo" },
+          { to: "/piscina", icon: LucideWaves, label: "Piscina" },
+          { to: "/jacuzzi", icon: WavesLadder, label: "Jacuzzi" },
+        ].map(({ to, icon: Icon, label }) => (
+          <Link to={to} key={to} className="group relative">
+            <Icon className="w-6 h-6 text-gray-500 hover:text-gray-900" />
+            <span className="absolute left-8 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+              {label}
+            </span>
+          </Link>
+        ))}
+        {/* Línea divisoria */}
+        <div className="w-6 h-0.5 bg-gray-300 my-4"></div>
+        {/* Nuevos íconos */}
+        {[
+          { to: "/mapa", icon: MapPinHouse, label: "Mapa" },
+          { to: "/about", icon: CircleHelp, label: "Sobre Nosotros" },
+          { to: "/contact", icon: UserPen, label: "Contáctanos" },
+          { to: "/rate", icon: Star, label: "Califícanos" },
+        ].map(({ to, icon: Icon, label }) => (
+          <Link to={to} key={to} className="group relative">
+            <Icon className="w-6 h-6 text-gray-500 hover:text-gray-900" />
+            <span className="absolute left-8 top-1/2 transform -translate-y-1/2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity">
+              {label}
+            </span>
+          </Link>
+        ))}
+      </div>
+
       {/* Íconos de redes sociales fuera del Sidebar con fondo */}
       <div className="absolute bottom-5 left-5 z-50 rounded hidden md:block">
         <div className="flex flex-col space-y-4">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <Facebook className="w-6 h-6" />
           </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
             <Instagram className="w-6 h-6" />
           </a>
         </div>
       </div>
 
-      {/* Botón para abrir el Sidebar */}
+      {/* Botón para abrir el Sidebar solo en móviles y tablets */}
       <div className="absolute top-5 top-10 lg:top-1/2 left-0 lg:left-auto transform -translate-y-1/2 lg:translate-y-0">
         <button
           onClick={() => setIsOpen(true)}
           aria-controls="separator-sidebar"
           type="button"
-          className="inline-flex items-center p-1 m-1 text-sm text-gray-100 md:text-gray-500 rounded-lg bg-slate-100 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          className="inline-flex items-center p-1 m-1 text-sm block md:hidden text-gray-100 md:text-gray-500 rounded-lg bg-slate-100 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-gray-200"
         >
           <span className="sr-only">Open sidebar</span>
           <Menu className="w-6 h-6 md:w-12 md:h-12 text-stone-800" />
@@ -72,9 +100,8 @@ export default function SidebarA() {
       {/* Sidebar con fondo bg-slate-50 */}
       <aside
         id="separator-sidebar"
-        className={`fixed top-0 left-0 z-50 w-64 h-screen transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed top-0 left-0 z-50 w-64 h-screen transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         aria-label="Sidebar"
       >
         <div className="flex flex-col h-full bg-slate-50">

@@ -1,5 +1,5 @@
-import { Radio, RadioGroup } from "@headlessui/react";
-import { StarIcon } from "lucide-react";
+import { Dialog, DialogBackdrop, DialogPanel, Radio, RadioGroup } from '@headlessui/react'
+import { StarIcon,X } from "lucide-react";
 import { useState } from "react";
 
 function Restaurante() {
@@ -108,6 +108,15 @@ function Restaurante() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
 
+  const [open, setOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const openModal = (product) => {
+    setSelectedProduct(product);
+    setOpen(true);
+  };
+
+
   return (
     <div>
       <section>
@@ -117,7 +126,7 @@ function Restaurante() {
           </h1>
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <div key={product.id} className="group relative">
+              <div key={product.id} className="group relative" onClick={() => openModal(product)}>
                 <img
                   alt={product.imageAlt}
                   src={product.imageSrc}
@@ -126,22 +135,43 @@ function Restaurante() {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700">
-                      <a href={product.href}>
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {product.name}
-                      </a>
+                      <span>{product.name}</span>
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      {product.color}
-                    </p>
+                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                   </div>
-                  <p className="text-sm font-medium text-gray-900">
-                    {product.price}
-                  </p>
+                  <p className="text-sm font-medium text-gray-900">{product.price}</p>
                 </div>
               </div>
             ))}
           </div>
+
+          {selectedProduct && (
+            <Dialog open={open} onClose={() => setOpen(false)} className="relative z-10">
+              <DialogBackdrop className="fixed inset-0 bg-gray-500/75" />
+              <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+                <div className="flex min-h-full items-center justify-center p-4">
+                  <DialogPanel className="relative bg-white rounded-lg p-6 max-w-lg">
+                    <button onClick={() => setOpen(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-500">
+                      <X className="h-6 w-6" />
+                    </button>
+                    <img alt={selectedProduct.imageAlt} src={selectedProduct.imageSrc} className="w-full rounded-md" />
+                  </DialogPanel>
+                </div>
+              </div>
+            </Dialog>
+            // <Dialog open={open} onClose={() => setOpen(false)} className="relative z-10">
+            //   <DialogBackdrop className="fixed inset-0 bg-black bg-opacity-70 transition-opacity" />
+            //   <div className="fixed inset-0 z-10 flex items-center justify-center p-4">
+            //     <DialogPanel className="relative bg-white bg-opacity-90 rounded-lg p-4 max-w-3xl shadow-xl transition-transform transform scale-100">
+            //       <button onClick={() => setOpen(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-500">
+            //         <x className="h-6 w-6" />
+            //       </button>
+            //       <img alt={selectedProduct.imageAlt} src={selectedProduct.imageSrc} className="w-full h-auto rounded-md" />
+            //     </DialogPanel>
+            //   </div>
+            // </Dialog>
+          )}
+          {/* End Image and info */}
         </div>
       </section>
       {/* Section 2 */}
