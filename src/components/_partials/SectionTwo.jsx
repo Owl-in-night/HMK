@@ -1,63 +1,61 @@
+import { useState, useEffect } from 'react';
 
-import { Cloud, Lock, Server } from 'lucide-react';
+const images = [
+  {
+    src: 'https://tailwindui.com/plus-assets/img/component-images/dark-project-app-screenshot.png',
+    text: 'Push to deploy.',
+    link: '/services/deploy',
+  },
+  {
+    src: 'https://tailwindui.com/plus-assets/img/component-images/light-project-app-screenshot.png',
+    text: 'SSL certificates.',
+    link: '/services/ssl',
+  },
+  {
+    src: 'https://tailwindui.com/plus-assets/img/component-images/dashboard-app-screenshot.png',
+    text: 'Database backups.',
+    link: '/services/backups',
+  },
+  {
+    src: 'https://tailwindui.com/plus-assets/img/component-images/task-app-screenshot.png',
+    text: 'Advanced security.',
+    link: '/services/security',
+  }
+];
 
 export default function SectionTwo() {
-  const features = [
+  const [index, setIndex] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Cambia la imagen cada 3 segundos
+    return () => clearInterval(interval);
+  }, []);
 
-    {
-      name: 'Push to deploy.',
-      description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-      icon: Cloud,
-    },
-    {
-      name: 'SSL certificates.',
-      description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-      icon: Lock,
-    },
-    {
-      name: 'Database backups.',
-      description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-      icon: Server,
-    },
-  ]
+  const { text, src, link } = images[index];
+
   return (
-    <div className="overflow-hidden py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pt-4 lg:pr-8">
-            <div className="lg:max-w-lg">
-              <h2 className="text-base/7 font-semibold text-indigo-600">Deploy faster</h2>
-              <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
-                A better workflow
-              </p>
-              <p className="mt-6 text-lg/8 text-gray-600">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque,
-                iste dolor cupiditate blanditiis ratione.
-              </p>
-              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-                {features.map((feature) => (
-                  <div key={feature.name} className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <feature.icon aria-hidden="true" className="absolute top-1 left-1 size-5 text-indigo-600" />
-                      {feature.name}
-                    </dt>{' '}
-                    <dd className="inline">{feature.description}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
+    <section className="w-full h-screen flex items-center justify-center">
+      <div className="w-full h-full relative">
+        <img
+          src={src}
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+        />
+        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="relative z-10 flex items-center h-full max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-white max-w-lg">
+            <h2 className="text-5xl font-bold mb-6">{text}</h2>
+            <a
+              href={link}
+              className="mt-4 inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-lg font-semibold px-6 py-3 rounded-lg transition"
+            >
+              Ver servicio
+            </a>
           </div>
-          <img
-            alt="Product screenshot"
-            src="https://tailwindui.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
-            width={2432}
-            height={1442}
-            className="w-[48rem] max-w-none rounded-xl ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-          />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
